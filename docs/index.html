@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maisonadrian | Vintage-Inspired Copywriting</title>
+    <style>
+        /* GLOBAL STYLES */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #d4b895;
+            --accent: #a67c52;
+            --light: #f5f1e9;
+            --dark: #1a1a1a;
+            --text: #333333;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            color: var(--text);
+            background-color: var(--light);
+            line-height: 1.6;
+            font-size: 18px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        h2:after {
+            content: "";
+            position: absolute;
+            width: 60%;
+            height: 2px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 0;
+        }
+
+        h3 {
+            font-size: 1.75rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 2px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        /* HEADER & NAVIGATION */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(245, 241, 233, 0.95);
+            box-shadow: 0 2px 10px var(--shadow);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            padding: 10px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--primary);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/api/placeholder/1200/800');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            background-color: white;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .signature {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-top: 1rem;
+        }
+
+        /* SERVICES SECTION */
+        .services {
+            background-color: var(--light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px var(--shadow);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .service-title {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .price {
+            font-weight: bold;
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+
+        .subscription {
+            background-color: var(--primary);
+            color: white;
+            padding: 40px;
+            border-radius: 5px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .subscription h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .subscription .price {
+            color: var(--secondary);
+            font-size: 2rem;
+            margin: 1rem 0;
+        }
+
+        /* PORTFOLIO SECTION */
+        .portfolio {
+            background-color: white;
+        }
+
+        .portfolio-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            margin: 0 5px;
+            background-color: var(--light);
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .tab.active, .tab:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 5px;
+            height: 100%;
+        }
+
+        .portfolio-category {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-title {
+            margin-bottom: 1rem;
+        }
+
+        /* TESTIMONIALS SECTION */
+        .testimonials {
+            background-color: var(--primary);
+            color: white;
+            position: relative;
+        }
+
+        .testimonials:before {
+            content: '"';
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            font-size: 15rem;
+            font-family: 'Playfair Display', serif;
+            color: rgba(255, 255, 255, 0.1);
+            line-height: 0;
+        }
+
+        .testimonials h2:after {
+            background-color: var(--secondary);
+        }
+
+        .testimonial-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .testimonial {
+            text-align: center;
+            padding: 0 30px;
+        }
+
+        .testimonial-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .client-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .client-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .client-role {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+
+        /* FAQ SECTION */
+        .faq {
+            background-color: var(--light);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 30px;
+        }
+
+        .faq-item {
+            margin-bottom: 30px;
+        }
+
+        .faq-question {
+            background-color: white;
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 3px solid var(--accent);
+        }
+
+        .faq-answer {
+            background-color: white;
+            padding: 20px;
+            border-top: 1px solid #eee;
+            display: none;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        /* CONTACT SECTION */
+        .contact {
+            background-color: white;
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-method {
+            margin-bottom: 30px;
+        }
+
+        .contact-method h4 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(166, 124, 82, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* FOOTER */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-col h4 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE STYLES */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            h2 {
+                font-size: 2.2rem;
+            }
+
+            .about-container, .contact-container {
+                flex-direction: column;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--light);
+                padding: 20px 0;
+                box-shadow: 0 5px 10px var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .services-grid, .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .tagline {
+                font-size: 1.3rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+        }
+
+        /* UTILITY CLASSES */
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-3 {
+            margin-bottom: 30px;
+        }
+
+        .font-italic {
+            font-style: italic;
+        }
+
+        .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .text-accent {
+            color: var(--accent);
+        }
+        
+        /* Visual indicator for smooth scrolling function */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+        
+        .scroll-indicator.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <!-- Load fonts -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#home" class="logo">Maison<span>adrian</span></a>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Maisonadrian</h1>
+                <p class="tagline">Timeless Words for Timeless Brands</p>
+                <p>Expertly crafted copy that captures the soul of vintage fashion, lifestyle, and streetwear brands.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn">Get in Touch</a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <p class="section-subtitle">About Me</p>
+                <h2>The Voice Behind Your Brand</h2>
+            </div>
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="/api/placeholder/600/800" alt="Maisonadrian Profile">
+                </div>
+                <div class="about-content">
+                    <p>As a dedicated copywriter with a passion for the nuanced world of fashion, I specialize in creating emotional, brand-driven storytelling that resonates particularly with Gen Z audiences and enthusiasts of streetwear and luxury fashion alike.</p>
+                    
+                    <p>My approach blends timeless elegance with contemporary edge—finding the sweet spot between vintage inspiration and modern sensibility. Each word I craft aims to evoke genuine emotion, creating a bridge between your brand's unique heritage and today's discerning consumer.</p>
+                    
+                    <p>What sets my work apart is an unwavering commitment to authenticity. I believe that truly compelling copy doesn't just describe a product—it tells a story that captivates, inspires, and ultimately converts. Whether it's the weathered charm of vintage denim or the meticulous craftsmanship of luxury streetwear, I capture the essence that makes your brand extraordinary.</p>
+                    
+                    <p class="signature">— Adrian</p>
+                    <a href="#services" class="btn">Discover My Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <p class="section-subtitle">Services & Pricing</p>
+                <h2>Premium Copywriting Solutions</h2>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tag"></i>
+                    </div>
+                    <h3 class="service-title">Product Descriptions</h3>
+                    <p>Compelling, detail-rich descriptions that highlight the unique qualities of your garments and accessories while weaving in your brand story.</p>
+                    <p class="price">From €70</p>
+                    <a href="#contact" class="btn">Request Quote</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ad"></i>
+                    </div>
+                    <h3 class="service-title">Social Media Ad Copy</h3>
+                    <p>Punchy, scroll-stopping copy that speaks directly to your target audience, driving engagement and conversions across platforms.</p>
+                    <p class="price">From €120</p>
+                    <a href="#contact" class="btn">Request Quote</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3 class="service-title">Landing Page Copy</h3>
+                    <p>Strategic, conversion-focused page content that guides visitors through your brand story and nudges them toward taking action.</p>
+                    <p class="price">From €300</p>
+                    <a href="#contact" class="btn">Request Quote</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="service-title">Full Brand Copy Package</h3>
+                    <p>A comprehensive suite of brand messaging, including taglines, brand story, product descriptions, and key marketing materials.</p>
+                    <p class="price">From €700</p>
+                    <a href="#contact" class="btn">Request Quote</a>
+                </div>
+            </div>
+            
+            <div class="subscription">
+                <h3>Monthly Copy Subscription Plan</h3>
+                <p>Consistent, premium quality content delivered on a monthly basis. Includes 4 premium pieces (ads, product pages, or landing copy) with priority delivery.</p>
+                <p class="price">€469/month</p>
+                <a href="#contact" class="btn">Subscribe Now</a>
+            </div>
+        </div>
+    </section>
+<!-- Completing the Email Campaign portfolio item -->
+                    <p>The threads of nostalgia woven with forward vision—this has always been our signature. This Thursday, we invite you to experience our most ambitious expression yet.</p>
+                    <p>The Heritage Collection doesn't simply reference the past; it converses with it. Each piece carries echoes of golden eras while speaking clearly to today's sensibilities.</p>
+                    <p>Yours in style,<br>The Antiqua Team</p>
+                    <a href="#contact" class="btn">Request Similar Copy</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <p class="section-subtitle">Client Feedback</p>
+                <h2>What Brands Are Saying</h2>
+            </div>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <p class="testimonial-text">"Adrian captured our brand voice with an authenticity I didn't think possible from an outside writer. The copy not only increased our conversion rate by 37%, but it genuinely represents who we are as a heritage brand looking toward the future."</p>
+                    <div class="client-info">
+                        <p class="client-name">Olivia Westbrook</p>
+                        <p class="client-role">Brand Director, Atelier Denim</p>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"Working with Maisonadrian transformed our product descriptions from generic specifications to compelling stories. Our customers now connect emotionally with our pieces before they even try them on. The investment paid for itself within the first month."</p>
+                    <div class="client-info">
+                        <p class="client-name">Marcus Chen</p>
+                        <p class="client-role">E-Commerce Manager, Sentinel Apparel</p>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"The monthly subscription has been a game-changer for our content calendar. Having Adrian's consistent voice across our campaigns gives us the premium, cohesive feel we've always wanted but struggled to achieve in-house. Worth every penny."</p>
+                    <div class="client-info">
+                        <p class="client-name">Sophia Lindqvist</p>
+                        <p class="client-role">Marketing Lead, Heritage & Stone</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq section" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <p class="section-subtitle">Common Questions</p>
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What's your process for capturing a brand's unique voice?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>I begin with an in-depth discovery session where we explore your brand's heritage, values, and aspirations. I'll study your existing materials, competitors, and audience expectations. Then I create a detailed brand voice guide before drafting any content. This methodical approach ensures consistency and authenticity across all deliverables.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How long does it typically take to complete a project?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>For smaller projects like product descriptions or ad copy, I typically deliver within 3-5 business days. More comprehensive projects such as complete website copy or brand messaging suites generally take 2-3 weeks from our initial consultation to final delivery. Rush services are available for time-sensitive launches with a 25% expedite fee.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do you offer revisions on your copy?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. All projects include two rounds of revisions at no additional cost. This ensures we fine-tune the messaging until it perfectly aligns with your vision. Additional revision rounds can be arranged at an hourly rate if needed, though most clients find that two rounds are sufficient to achieve the desired results.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What makes your copy different from other copywriters?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>My specialty lies in bridging vintage aesthetics with contemporary appeal—particularly for fashion and lifestyle brands. Unlike generalist copywriters, I bring deep knowledge of fashion history, craftsmanship terminology, and the nuanced language that resonates with both connoisseurs and younger audiences discovering heritage styles. Every project benefits from this specialized perspective.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How does the monthly subscription work?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The subscription includes four premium copywriting deliverables each month (you choose from product descriptions, ad campaigns, email sequences, or landing page sections). We'll establish a content calendar for predictable delivery, and you'll have priority access to my schedule. The subscription requires a three-month minimum commitment and includes one additional revision round (three total) per deliverable.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do you work with brands outside the fashion industry?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>While my expertise is centered around vintage-inspired fashion, lifestyle, and streetwear brands, I occasionally take on select projects in adjacent industries that share an appreciation for heritage, craftsmanship, and storytelling—such as home goods, specialty foods, and traditional crafts. Feel free to reach out about your specific niche.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <p class="section-subtitle">Get In Touch</p>
+                <h2>Let's Create Something Timeless</h2>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <p>Ready to elevate your brand's messaging with copy that resonates with both heritage and contemporary audiences? I'd love to hear about your project.</p>
+                    
+                    <div class="contact-method">
+                        <h4>Email</h4>
+                        <p>hello@maisonadrian.com</p>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <h4>Based In</h4>
+                        <p>Berlin, Germany (Working with clients worldwide)</p>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <h4>Office Hours</h4>
+                        <p>Monday–Friday, 10am–6pm CET</p>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Company (Optional)</label>
+                            <input type="text" id="company" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" class="form-control" required>
+                                <option value="">Select a service</option>
+                                <option value="product">Product Descriptions</option>
+                                <option value="social">Social Media Copy</option>
+                                <option value="landing">Landing Page Copy</option>
+                                <option value="brand">Full Brand Package</option>
+                                <option value="subscription">Monthly Subscription</option>
+                                <option value="other">Other (Please Specify)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Project Details</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4>Maisonadrian</h4>
+                    <p>Crafting timeless copy for heritage-inspired brands since 2018.</p>
+                    <p>Turning products into stories. Features into emotions. Brands into legacies.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Product Descriptions</a></li>
+                        <li><a href="#services">Social Media Copy</a></li>
+                        <li><a href="#services">Landing Page Copy</a></li>
+                        <li><a href="#services">Full Brand Packages</a></li>
+                        <li><a href="#services">Monthly Subscriptions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Maisonadrian. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <div class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Add JavaScript for interactivity -->
+    <script>
+        // Toggle navigation menu
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Header scroll effect
+        const header = document.querySelector('.header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // FAQ toggle
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.classList.toggle('active');
+                
+                const icon = question.querySelector('i');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            });
+        });
+        
+        // Portfolio filtering
+        const filterButtons = document.querySelectorAll('.portfolio-tabs .tab');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filter = button.getAttribute('data-filter');
+                
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Simple testimonial slider
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial');
+        
+        function showTestimonial(index) {
+            testimonials.forEach(testimonial => {
+                testimonial.style.display = 'none';
+            });
+            
+            testimonials[index].style.display = 'block';
+        }
+        
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }
+        
+        // Initialize testimonial slider
+        showTestimonial(currentTestimonial);
+        setInterval(nextTestimonial, 5000);
+        
+        // Back to top button
+        const backToTopBtn = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
+
+
+    <!-- Portfolio Section -->
+    <section class="portfolio section" id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <p class="section-subtitle">Portfolio</p>
+                <h2>Words That Inspire</h2>
+            </div>
+            
+            <div class="portfolio-tabs">
+                <button class="tab active" data-filter="all">All</button>
+                <button class="tab" data-filter="product">Product Copy</button>
+                <button class="tab" data-filter="ad">Ad Copy</button>
+                <button class="tab" data-filter="website">Website Copy</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="product">
+                    <p class="portfolio-category">Product Description</p>
+                    <h3 class="portfolio-title">Vintage Denim Jacket</h3>
+                    <p>Time doesn't just add years to denim—it adds character. Our 1970s-inspired Wayward Jacket carries the weathered wisdom of decades in every fiber. Hand-distressed using traditional techniques, each piece tells its own story through subtle variations in fade and texture. This isn't just vintage-inspired; it's an homage to an era when craftsmanship meant everything.</p>
+                    <a href="#contact" class="btn">Request Similar Copy</a>
+                </div>
+                
+                <div class="portfolio-item" data-category="ad">
+                    <p class="portfolio-category">Instagram Ad</p>
+                    <h3 class="portfolio-title">Limited Edition Sneaker Drop</h3>
+                    <p>History meets hustle. The past reimagined for those who shape the future. Our 'Heritage' collection drops Friday—only 500 pairs worldwide. Not just worn by legends. Made for the next ones.</p>
+                    <p>#StreetHeritageCollection #LimitedDrop</p>
+                    <a href="#contact" class="btn">Request Similar Copy</a>
+                </div>
+                
+                <div class="portfolio-item" data-category="website">
+                    <p class="portfolio-category">Website Headline</p>
+                    <h3 class="portfolio-title">Brand Homepage</h3>
+                    <p class="font-serif text-accent font-italic">"We don't chase trends. We craft legacies."</p>
+                    <p>Meticulously sourced materials. Handcrafted processes. Designs that defy the temporary nature of fashion. Our collections aren't seasonal statements—they're lifetime companions.</p>
+                    <a href="#contact" class="btn">Request Similar Copy</a>
+                </div>
+                
+                <div class="portfolio-item" data-category="product">
+                    <p class="portfolio-category">Product Description</p>
+                    <h3 class="portfolio-title">Silk Scarf Collection</h3>
+                    <p>Each thread in our Memoir Collection silk scarves carries a narrative spanning generations. Hand-printed using techniques preserved from 1930s Parisian ateliers, these pieces blur the line between accessory and artifact. The subtle patina effect—achieved through our proprietary aging process—ensures your scarf arrives with the character of a cherished heirloom, waiting to accompany you on your own story.</p>
+                    <a href="#contact" class="btn">Request Similar Copy</a>
+                </div>
+                
+                <div class="portfolio-item" data-category="ad">
+                    <p class="portfolio-category">Social Media Ad</p>
+                    <h3 class="portfolio-title">Vintage-Inspired Watch</h3>
+                    <p>Some measure time. Others honor it. The Sentinel Chronograph—where mechanical precision meets timeless design. Not a revival, but a continuation of a legacy that never truly ended.</p>
+                    <p>Now available for pre-order. Limited to 100 pieces.</p>
+                    <a href="#contact" class="btn">Request Similar Copy</a>
+                </div>
+                
+                <div class="portfolio-item" data-category="website">
+                    <p class="portfolio-category">Email Campaign</p>
+                    <h3 class="portfolio-title">Collection Launch</h3>
+                    <p>Dear Connoisseur,
